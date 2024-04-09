@@ -1,6 +1,6 @@
 package com;
 
-class Paciente implements Comparable<Paciente> {
+public class Paciente implements Comparable<Paciente> {
     private String nombre;
     private String sintoma;
     private char codigoEmergencia;
