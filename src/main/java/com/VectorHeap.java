@@ -1,12 +1,13 @@
 package com;
 
 import com.Interfaces.PriorityQueue;
+import java.util.Vector;
 
 public class VectorHeap<E extends Comparable<E>> implements PriorityQueue<E> {
-    private java.util.Vector<E> data;
+    private Vector<E> data;
 
     public VectorHeap() {
-        data = new java.util.Vector<>();
+        data = new Vector<>();
     }
 
     @Override

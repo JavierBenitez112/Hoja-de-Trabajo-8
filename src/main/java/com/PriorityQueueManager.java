@@ -1,18 +1,16 @@
 package com;
 
 import com.Interfaces.PriorityQueue;
-import com.Interfaces.PacienteFactory;
+import com.Interfaces.QueueFactory;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
-class PriorityQueueManager {
+public class PriorityQueueManager {
     private PriorityQueue<Paciente> emergencias;
-    private PacienteFactory factory;
 
-    public PriorityQueueManager(PacienteFactory factory) {
-        this.emergencias = new VectorHeap<>();
-        this.factory = factory;
+    public PriorityQueueManager(QueueFactory<Paciente> factory) {
+        this.emergencias = factory.createQueue();
     }
 
     public void run() {
@@ -31,7 +29,7 @@ class PriorityQueueManager {
                     String nombre = parts[0].trim();
                     String sintoma = parts[1].trim();
                     char codigoEmergencia = parts[2].trim().charAt(0);
-                    emergencias.add(factory.createPaciente(nombre, sintoma, codigoEmergencia));
+                    emergencias.add(new Paciente(nombre, sintoma, codigoEmergencia));
                 }
             }
             scanner.close();
